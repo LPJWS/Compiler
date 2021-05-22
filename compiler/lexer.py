@@ -41,11 +41,11 @@ class Lexer:
         self.lexer.add('{', r'\{')
         self.lexer.add('}', r'\}')
         # Function
-        self.lexer.add('FUNCTION', r'def')
-        self.lexer.add('RETURN', r'return')
         self.lexer.add('PRINT', r'print')
         self.lexer.add('SUMI', r'sum(?!\w)')
         self.lexer.add('SUMF', r'sumf(?!\w)')
+        self.lexer.add('SUBI', r'sub(?!\w)')
+        self.lexer.add('SUBF', r'subf(?!\w)')
         # Assignment
         self.lexer.add('INT', r'int(?!\w)')
         self.lexer.add('FLT', r'float(?!\w)')
