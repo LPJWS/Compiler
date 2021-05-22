@@ -1,0 +1,37 @@
+var min_a = 0; var min_b = 0; var min_ret = 0;
+def min() {
+    min_ret = 0;
+    if (min_a < min_b) {
+        min_ret = min_a;
+    }
+    else {
+        min_ret = min_b;
+    }
+}
+
+
+var pow_a = 0; var pow_b = 0; var pow_in_i = 0; var pow_ret = 1;
+def pow() {
+    pow_ret = 1;
+    pow_in_i = 0;
+    while (pow_in_i < pow_b) {
+        pow_ret = pow_ret * pow_a;
+        pow_in_i = pow_in_i + 1;
+    }
+}
+
+
+def main() {
+    min_a = 3; min_b = 4; min(); var i = min_ret;
+    print(i);
+
+    i = 1; var j = 0;
+    while (i < 10 + 1) {
+        pow_a = i; pow_b = 2; pow(); j = pow_ret;
+        print('pow(' + i + ', ' + pow_b + ') = ' + j);
+        i = i + 1;
+    }
+
+}
+
+main();
