@@ -278,6 +278,44 @@ class Sumf(BaseFunction):
         return res
 
 
+class Subi(BaseFunction):
+    def __init__(self, args, builder, module, state):
+        super().__init__(args[0], state)
+        self.expression2 = args[1]
+        self.value2 = None
+        self.builder = builder
+        self.module = module
+
+    def eval(self, node):
+        expression = Node("expression")
+        expression2 = Node("expression")
+        node.children.extend([Node("CALLSUBI"), Node("("), expression, Node(","), expression2, Node(")")])
+        self.value = self.expression.eval(expression)
+        self.value2 = self.expression2.eval(expression2)
+
+        res = self.builder.call(fnctns['sub'], (self.value, self.value2))
+        return res
+
+
+class Subf(BaseFunction):
+    def __init__(self, args, builder, module, state):
+        super().__init__(args[0], state)
+        self.expression2 = args[1]
+        self.value2 = None
+        self.builder = builder
+        self.module = module
+
+    def eval(self, node):
+        expression = Node("expression")
+        expression2 = Node("expression")
+        node.children.extend([Node("CALLSUBF"), Node("("), expression, Node(","), expression2, Node(")")])
+        self.value = self.expression.eval(expression)
+        self.value2 = self.expression2.eval(expression2)
+
+        res = self.builder.call(fnctns['subf'], (self.value, self.value2))
+        return res
+
+
 class Constant(BaseBox):
     def __init__(self, state, builder, module):
         self.value = None
@@ -437,6 +475,24 @@ class Div(BinaryOp):
             i = self.builder.fdiv(eval_left, eval_right)
         else:
             i = self.builder.sdiv(eval_left, eval_right)
+        return i
+
+
+class Additive(BaseBox):
+    def __init__(self, expression, state, builder, module):
+        self.value = expression
+        self.state = state
+        self.builder = builder
+        self.module = module
+
+    def eval(self, node):
+        right = Node("expression")
+        node.children.extend([Node("-"), right])
+        eval_right = self.value.eval(right)
+        if eval_right.type == ir.FloatType():
+            i = self.builder.fsub(ir.Constant(ir.FloatType(), 0.0), eval_right)
+        else:
+            i = self.builder.mul(ir.Constant(ir.IntType(8), -1), eval_right)
         return i
 
 
@@ -641,6 +697,24 @@ class Main(BaseBox):
         f_builder = ir.IRBuilder(block)
         a, b = func.args
         result = f_builder.fadd(a, b, name="res")
+        f_builder.ret(result)
+
+        fnty = ir.FunctionType(int_, (int_, int_))
+        func = ir.Function(self.module, fnty, name="sub")
+        fnctns['sub'] = func
+        block = func.append_basic_block(name="entry")
+        f_builder = ir.IRBuilder(block)
+        a, b = func.args
+        result = f_builder.sub(a, b, name="res")
+        f_builder.ret(result)
+
+        fnty = ir.FunctionType(flt, (flt, flt))
+        func = ir.Function(self.module, fnty, name="fsub")
+        fnctns['subf'] = func
+        block = func.append_basic_block(name="entry")
+        f_builder = ir.IRBuilder(block)
+        a, b = func.args
+        result = f_builder.fsub(a, b, name="res")
         f_builder.ret(result)
 
     def eval(self, node):

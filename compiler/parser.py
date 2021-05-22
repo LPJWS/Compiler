@@ -23,7 +23,7 @@ class Parser:
              'INT', 'FLT',
              '=', '==', '!=', '>=', '>', '<', '<=',
              'SUM', 'SUB', 'MUL', 'DIV', 'IDENTIFIER', 'FUNCTION',
-             'SUMI', 'SUMF', 'PRINT',
+             'SUMI', 'SUMF', 'SUBI', 'SUBF', 'PRINT',
              ],
             precedence=(
                 ('left', ['FUNCTION']),
@@ -179,6 +179,12 @@ class Parser:
             else:
                 raise LogicError('Unknown operator: %s' % p[1].gettokentype())
 
+        @self.pg.production('expression : SUB expression')
+        def expression_minus(state, p):
+            if self.syntax is True:
+                return [Node("-"), Node("expression", p[0])]
+            return Additive(p[1], state, self.builder, self.module)
+
         @self.pg.production('expression : expression != expression')
         @self.pg.production('expression : expression == expression')
         @self.pg.production('expression : expression >= expression')
@@ -258,6 +264,18 @@ class Parser:
             if self.syntax is True:
                 return [Node("IDENTIFIER", p[0]), Node("("), Node(")")]
             return Sumf((p[2], p[4]), self.builder, self.module, state=state)
+
+        @self.pg.production('expression : SUBI ( expression , expression )')
+        def expression_call(state, p):
+            if self.syntax is True:
+                return [Node("IDENTIFIER", p[0]), Node("("), Node(")")]
+            return Subi((p[2], p[4]), self.builder, self.module, state=state)
+
+        @self.pg.production('expression : SUBF ( expression , expression )')
+        def expression_call(state, p):
+            if self.syntax is True:
+                return [Node("IDENTIFIER", p[0]), Node("("), Node(")")]
+            return Subf((p[2], p[4]), self.builder, self.module, state=state)
 
         @self.pg.production('expression : const')
         def expression_const(state, p):
