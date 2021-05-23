@@ -32,14 +32,12 @@ syntaxRoot: Node
 semanticRoot = Node("main")
 has_errors = False
 try:
-    syntaxRoot = Node("main", Parser(module, builder, printf, syntax=True).build().parse(copy(tokens), state=SymbolTable))
     Parser(module, builder, printf).build().parse(copy(tokens), state=SymbolTable).eval(semanticRoot)
 except (BaseException, Exception) as e:
-    traceback.print_exc()
-    # print('Error occurred: %s' % e)
+    # traceback.print_exc()
+    print('Error occurred: %s' % e)
     has_errors = True
 finally:
-    write(syntaxRoot, "SyntaxAnalyzer")
     write(semanticRoot, "SemanticAnalyzer")
 
     codegen.create_ir()
@@ -55,7 +53,6 @@ finally:
             if v != 'args':
                 print('%s\t|\t%s\t|\t%s' % (v, SymbolTable.variables[m][v]['type'], m._name))
     for v in SymbolTable.functions.keys():
-        # print(SymbolTable.functions[v].__dict__)
         print('%s\t|\t%s\t|\t-' % (v, SymbolTable.functions[v].typ))
 
     # with open('treant-js-master/SemanticAnalyzer.json', 'r') as file:
