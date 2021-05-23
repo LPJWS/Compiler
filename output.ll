@@ -1,4 +1,4 @@
-; ModuleID = "/home/lpjakewolfskin/comp/compiler/codegen.py"
+; ModuleID = "/home/lpjakewolfskin/comp (копия)/compiler/codegen.py"
 target triple = "x86_64-unknown-linux-gnu"
 target datalayout = ""
 
@@ -20,7 +20,6 @@ entry:
   %"q.3" = load i8, i8* %"q"
   %".11" = bitcast [5 x i8]* @"fstr" to i8*
   %".12" = call i32 (i8*, ...) @"printf"(i8* %".11", i8 %"q.3")
-  %".13" = call i8 @"www"(i8 1, i8 2)
   ret void
 }
 
@@ -91,22 +90,4 @@ while.endif:
   %"b.5" = load i8, i8* %"b"
   %".16" = icmp ne i8 %"a.5", %"b.5"
   br i1 %".16", label %"while", label %"while_end"
-}
-
-define i8 @"www"(i8 %".1", i8 %".2") 
-{
-entry:
-  %"a" = alloca i8
-  store i8 %".1", i8* %"a"
-  %"b" = alloca i8
-  store i8 %".2", i8* %"b"
-  %"a.1" = load i8, i8* %"a"
-  %"b.1" = load i8, i8* %"b"
-  %".6" = add i8 %"a.1", %"b.1"
-  %".7" = bitcast [5 x i8]* @"fstr" to i8*
-  %".8" = call i32 (i8*, ...) @"printf"(i8* %".7", i8 %".6")
-  %"a.2" = load i8, i8* %"a"
-  %"b.2" = load i8, i8* %"b"
-  %".9" = add i8 %"a.2", %"b.2"
-  ret i8 %".9"
 }

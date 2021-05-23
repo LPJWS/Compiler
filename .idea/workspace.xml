@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2d0189d-81bc-4e3f-92cd-39f197e8f1c2" name="Default Changelist" comment="добавлен документ с пояснительной запиской">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiler/AbstractSyntaxTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/AbstractSyntaxTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiler/lexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/lexer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiler/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.code" beforeDir="false" afterPath="$PROJECT_DIR$/input.code" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output" beforeDir="false" afterPath="$PROJECT_DIR$/output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.ll" beforeDir="false" afterPath="$PROJECT_DIR$/output.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.o" beforeDir="false" afterPath="$PROJECT_DIR$/output.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treant-js-master/SemanticAnalyzer.json" beforeDir="false" afterPath="$PROJECT_DIR$/treant-js-master/SemanticAnalyzer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treant-js-master/SyntaxAnalyzer.json" beforeDir="false" afterPath="$PROJECT_DIR$/treant-js-master/SyntaxAnalyzer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
