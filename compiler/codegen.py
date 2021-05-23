@@ -32,7 +32,7 @@ class CodeGen:
         self.engine = engine
 
     def _declare_print_function(self):
-        voidptr_ty = ir.IntType(8).as_pointer()
+        voidptr_ty = ir.IntType(32).as_pointer()
         printf_ty = ir.FunctionType(ir.IntType(32), [voidptr_ty], var_arg=True)
         printf = ir.Function(self.module, printf_ty, name="printf")
         self.printf = printf

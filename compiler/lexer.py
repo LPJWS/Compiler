@@ -46,6 +46,8 @@ class Lexer:
         self.lexer.add('SUMF', r'sumf(?!\w)')
         self.lexer.add('SUBI', r'sub(?!\w)')
         self.lexer.add('SUBF', r'subf(?!\w)')
+        self.lexer.add('FUNC', r'def(?!\w)')
+        self.lexer.add('RETURN', r'return(?!\w)')
         # Assignment
         self.lexer.add('INT', r'int(?!\w)')
         self.lexer.add('FLT', r'float(?!\w)')
