@@ -20,7 +20,7 @@ try:
 except (BaseException, Exception):
     traceback.print_exc()
 finally:
-    print("\n\nResult:")
+    print("\n\nCompile log:")
 
 codegen = CodeGen()
 module = codegen.module
@@ -30,11 +30,14 @@ printf = codegen.printf
 SymbolTable = ParserState()
 syntaxRoot: Node
 semanticRoot = Node("main")
+has_errors = False
 try:
     syntaxRoot = Node("main", Parser(module, builder, printf, syntax=True).build().parse(copy(tokens), state=SymbolTable))
     Parser(module, builder, printf).build().parse(copy(tokens), state=SymbolTable).eval(semanticRoot)
-except (BaseException, Exception):
-    traceback.print_exc()
+except (BaseException, Exception) as e:
+    # traceback.print_exc()
+    print(e)
+    has_errors = True
 finally:
     write(syntaxRoot, "SyntaxAnalyzer")
     write(semanticRoot, "SemanticAnalyzer")
@@ -42,12 +45,18 @@ finally:
     codegen.create_ir()
     codegen.save_ir("output.ll")
 
-    print('End of program')
-    print("\n\nSymbol table:")
-    for v in SymbolTable.variables.keys():
-        print('%s | %s | %s' % (v, SymbolTable.variables[v]['type'], SymbolTable.variables[v]['value']))
+    if not has_errors:
+        print('Compile complete without errors')
+    else:
+        print('Compile complete with errors!')
+    print("\n\nSymbol table:\nName\t|\tType\t|\tFunction")
+    for m in SymbolTable.variables.keys():
+        for v in SymbolTable.variables[m].keys():
+            if v != 'args':
+                print('%s\t|\t%s\t|\t%s' % (v, SymbolTable.variables[m][v]['type'], m._name))
     for v in SymbolTable.functions.keys():
-        print('%s | func | %s' % (v, SymbolTable.functions[v]))
+        # print(SymbolTable.functions[v].__dict__)
+        print('%s\t|\t%s\t|\t-' % (v, SymbolTable.functions[v].typ))
 
     # with open('treant-js-master/SemanticAnalyzer.json', 'r') as file:
     #     print(json.dumps(json.loads(file.read()), sort_keys=False, indent=4))

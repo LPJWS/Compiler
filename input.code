@@ -1,4 +1,4 @@
-int a = 15;
+/*int a = 15;
 int b = 10;
 
 while (a != b){
@@ -9,4 +9,39 @@ while (a != b){
             b = sub(b, a);
         }
 } 
-print(a);
+print(a);*/
+
+/*def int qqq (int a, int b) {
+    int aa = a; int bb = b;
+    while (aa != bb){
+        if (aa > bb) {
+            aa = sub(aa, bb);
+        }
+        else {
+            bb = sub(bb, aa);
+        }
+    }
+    return(aa);
+}*/
+
+def int qqq (int a, int b) {
+
+    while (a != b){
+        if (a > b) {
+            a = sub(a, b);
+        }
+        else {
+            b = sub(b, a);
+        }
+    }
+
+    return(a);
+}
+
+int q = qqq(10, 15);
+print(q);
+q = qqq(8, 4);
+print(q);
+q = 1;
+print(q);
+www(1, 2);
