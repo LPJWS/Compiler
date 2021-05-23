@@ -323,7 +323,7 @@ class FunctionDeclaration(BaseBox):
         identifier = Node(self.name)
         node.children.extend([Node("FUNCTION"), Node('type', self.typ), identifier, Node("{"), Node("block"), Node("}")])
 
-        int_ = ir.IntType(8)
+        int_ = ir.IntType(32)
         flt_ = ir.FloatType()
         f_typ = {'int': int_, 'float': flt_}
 
@@ -336,7 +336,7 @@ class FunctionDeclaration(BaseBox):
         f_builder = ir.IRBuilder(block)
         self.state.variables[f_builder.function] = {}
         self.state.variables[f_builder.function]['args'] = {}
-        types_dict = {ir.IntType(8): 'INT', ir.FloatType(): 'FLT', str: 'STR'}
+        types_dict = {ir.IntType(32): 'INT', ir.FloatType(): 'FLT', str: 'STR'}
         for arg_ in range(len(func.args)):
             var_name = self.args.get_args()[arg_].name.getstr()
             var_type = func.args[arg_].type
@@ -430,7 +430,7 @@ class Sumi(BaseFunction):
 
         expression = Node("expression")
         expression2 = Node("expression")
-        node.children.extend([Node("CALLSUMI"), Node("("), expression, Node(","), expression2, Node(")")])
+        # node.children.extend([Node("CALLSUMI"), Node("("), expression, Node(","), expression2, Node(")")])
         self.value = self.expression.eval(expression, builder=builder)
         self.value2 = self.expression2.eval(expression2, builder=builder)
 
@@ -452,7 +452,7 @@ class Sumf(BaseFunction):
 
         expression = Node("expression")
         expression2 = Node("expression")
-        node.children.extend([Node("CALLSUMF"), Node("("), expression, Node(","), expression2, Node(")")])
+        # node.children.extend([Node("CALLSUMF"), Node("("), expression, Node(","), expression2, Node(")")])
         self.value = self.expression.eval(expression, builder=builder)
         self.value2 = self.expression2.eval(expression2, builder=builder)
 
@@ -474,7 +474,7 @@ class Subi(BaseFunction):
 
         expression = Node("expression")
         expression2 = Node("expression")
-        node.children.extend([Node("CALLSUBI"), Node("("), expression, Node(","), expression2, Node(")")])
+        # node.children.extend([Node("CALLSUBI"), Node("("), expression, Node(","), expression2, Node(")")])
         self.value = self.expression.eval(expression, builder=builder)
         self.value2 = self.expression2.eval(expression2, builder=builder)
 
@@ -496,7 +496,7 @@ class Subf(BaseFunction):
 
         expression = Node("expression")
         expression2 = Node("expression")
-        node.children.extend([Node("CALLSUBF"), Node("("), expression, Node(","), expression2, Node(")")])
+        # node.children.extend([Node("CALLSUBF"), Node("("), expression, Node(","), expression2, Node(")")])
         self.value = self.expression.eval(expression, builder=builder)
         self.value2 = self.expression2.eval(expression2, builder=builder)
 
@@ -520,7 +520,7 @@ class Constant(BaseBox):
         constant = Node("const", [typed])
         # node.children.extend([constant])
         if self.__class__.__name__.upper() == 'INTEGER':
-            i = ir.Constant(ir.IntType(8), int(self.value))
+            i = ir.Constant(ir.IntType(32), int(self.value))
             return i
         elif self.__class__.__name__.upper() == 'FLOAT':
             i = ir.Constant(ir.FloatType(), float(self.value))
@@ -579,7 +579,7 @@ class Assignment(BinaryOp):
 
         if isinstance(self.left, Variable):
             var_name = self.left.get_name()
-            types_dict = {ir.IntType(8): 'INT', ir.FloatType(): 'FLT', str: 'STR'}
+            types_dict = {ir.IntType(32): 'INT', ir.FloatType(): 'FLT', str: 'STR'}
             if self.new:
                 if builder.function not in self.state.variables.keys():
                     self.state.variables[builder.function] = {}
@@ -705,7 +705,7 @@ class Additive(BaseBox):
         if eval_right.type == ir.FloatType():
             i = builder.fsub(ir.Constant(ir.FloatType(), 0.0), eval_right)
         else:
-            i = builder.mul(ir.Constant(ir.IntType(8), -1), eval_right)
+            i = builder.mul(ir.Constant(ir.IntType(32), -1), eval_right)
         return i
 
 
@@ -877,7 +877,7 @@ class Print(BaseBox):
             node.children.extend([expression])
             value = self.value.eval(expression, builder=builder)
 
-            voidptr_ty = ir.IntType(8).as_pointer()
+            voidptr_ty = ir.IntType(32).as_pointer()
             fmt_arg = builder.bitcast(global_fmt, voidptr_ty)
 
             builder.call(self.printf, [fmt_arg, value])
@@ -922,7 +922,7 @@ class Main(BaseBox):
         global_fmt.initializer = c_fmt
 
         flt = ir.FloatType()
-        int_ = ir.IntType(8)
+        int_ = ir.IntType(32)
 
         fnty = ir.FunctionType(int_, (int_, int_))
         func = ir.Function(self.module, fnty, name="sum")

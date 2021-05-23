@@ -35,8 +35,8 @@ try:
     syntaxRoot = Node("main", Parser(module, builder, printf, syntax=True).build().parse(copy(tokens), state=SymbolTable))
     Parser(module, builder, printf).build().parse(copy(tokens), state=SymbolTable).eval(semanticRoot)
 except (BaseException, Exception) as e:
-    # traceback.print_exc()
-    print(e)
+    traceback.print_exc()
+    # print('Error occurred: %s' % e)
     has_errors = True
 finally:
     write(syntaxRoot, "SyntaxAnalyzer")
