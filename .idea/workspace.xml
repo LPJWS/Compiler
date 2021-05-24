@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d2d0189d-81bc-4e3f-92cd-39f197e8f1c2" name="Default Changelist" comment="добавлен документ с пояснительной запиской">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/input.code" beforeDir="false" afterPath="$PROJECT_DIR$/input.code" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output.ll" beforeDir="false" afterPath="$PROJECT_DIR$/output.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treant-js-master/SemanticAnalyzer.json" beforeDir="false" afterPath="$PROJECT_DIR$/treant-js-master/SemanticAnalyzer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treant-js-master/SyntaxAnalyzer.json" beforeDir="false" afterPath="$PROJECT_DIR$/treant-js-master/SyntaxAnalyzer.json" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/input1.code" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input2.code" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+>>>>>>> 25e02cbd3226cc3ada6c0cc54c6e4616c701cccc
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +27,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1shkU4tn5SfUn18yGcwcnX2BMMm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -30,6 +44,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">

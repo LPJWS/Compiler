@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 int a = 15;
 int b = 10;
 
@@ -10,3 +11,53 @@ while (a != b){
         }
 }
 print(a);
+=======
+def int qqq(int a, int b) {
+
+    while (a != b){
+        if (a > b) {
+            a = sub(a, b);
+        }
+        else {
+            b = sub(b, a);
+        }
+    }
+
+    return(a);
+}
+
+def int factor(int a) {
+    int res = 0;
+    if (a == 1 or a == 0) {
+        res = a;
+    }
+    else {
+        res = factor(a - 1) * a;
+    }
+    return(res);
+}
+
+def int floor(float a) {
+    int res = 0;
+    float ptr = 0.0;
+    while (ptr <= a) {
+        res = res + 1;
+        ptr = ptr + 1.0;
+    }
+    return(sub(res, 1));
+}
+
+int q = qqq(10, 15);
+print(q);
+q = qqq(8, 4);
+print(q);
+
+int a = 0;
+while (a <= 10) {
+    print(factor(a));
+    a = a + 1;
+}
+//print(factor(5));
+print(floor(5.9));
+print(-5);
+>>>>>>> 25e02cbd3226cc3ada6c0cc54c6e4616c701cccc
