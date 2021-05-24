@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2d0189d-81bc-4e3f-92cd-39f197e8f1c2" name="Default Changelist" comment="добавлен документ с пояснительной запиской">
-      <change beforePath="$PROJECT_DIR$/compiler/AbstractSyntaxTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/AbstractSyntaxTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiler/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.code" beforeDir="false" afterPath="$PROJECT_DIR$/input.code" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output.ll" beforeDir="false" afterPath="$PROJECT_DIR$/output.ll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treant-js-master/SemanticAnalyzer.json" beforeDir="false" afterPath="$PROJECT_DIR$/treant-js-master/SemanticAnalyzer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treant-js-master/SyntaxAnalyzer.json" beforeDir="false" afterPath="$PROJECT_DIR$/treant-js-master/SyntaxAnalyzer.json" afterDir="false" />
@@ -77,7 +75,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621470784288</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix git">
+      <created>1621694592470</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621694592470</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix git">
+      <created>1621694708347</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621694708347</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,7 +103,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -107,6 +119,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="добавлен документ с пояснительной запиской" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавлен документ с пояснительной запиской" />
+    <MESSAGE value="fix git" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix git" />
   </component>
 </project>
